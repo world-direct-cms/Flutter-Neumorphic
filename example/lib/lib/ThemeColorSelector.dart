@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 import 'color_selector.dart';
 
 class ThemeColorSelector extends StatefulWidget {
-  final BuildContext customContext;
+  final BuildContext? customContext;
 
   ThemeColorSelector({this.customContext});
 
@@ -22,8 +21,11 @@ class _ThemeColorSelectorState extends State<ThemeColorSelector> {
         color: NeumorphicTheme.baseColor(widget.customContext ?? context),
         onColorChanged: (color) {
           setState(() {
-            NeumorphicTheme.update(widget.customContext ?? context,
-                (current) => current.copyWith(baseColor: color));
+            NeumorphicTheme.update(
+                widget.customContext ?? context,
+                (current) =>
+                    current?.copyWith(baseColor: color) ??
+                    NeumorphicThemeData(baseColor: color));
           });
         },
       ),

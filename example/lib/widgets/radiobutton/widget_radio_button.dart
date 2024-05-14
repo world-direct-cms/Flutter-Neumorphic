@@ -1,11 +1,10 @@
 import 'package:example/lib/Code.dart';
 import 'package:example/lib/ThemeConfigurator.dart';
 import 'package:example/lib/top_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class RadioButtonWidgetPage extends StatefulWidget {
-  RadioButtonWidgetPage({Key key}) : super(key: key);
+  RadioButtonWidgetPage({super.key});
 
   @override
   createState() => _WidgetPageState();
@@ -69,7 +68,7 @@ class _DefaultWidget extends StatefulWidget {
 }
 
 class _DefaultWidgetState extends State<_DefaultWidget> {
-  int groupValue;
+  int? groupValue;
 
   Widget _buildCode(BuildContext context) {
     return Code("""
@@ -160,7 +159,7 @@ class CircleRadios extends StatefulWidget {
 }
 
 class _CircleRadiosState extends State<CircleRadios> {
-  String groupValue;
+  String? groupValue;
 
   Widget _buildCode(BuildContext context) {
     return Code("""
@@ -256,7 +255,7 @@ class _EnabledDisabledWidget extends StatefulWidget {
 }
 
 class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
-  int groupValue;
+  int? groupValue;
 
   Widget _buildWidget(BuildContext context) {
     return Padding(
@@ -303,7 +302,7 @@ class _EnabledDisabledWidgetState extends State<_EnabledDisabledWidget> {
   }
 
   Widget _buildCode(BuildContext context) {
-    return Code("""    
+    return Code("""
 int groupValue;
 
 NeumorphicRadio(
