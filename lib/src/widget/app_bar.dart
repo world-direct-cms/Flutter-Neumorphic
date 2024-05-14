@@ -102,9 +102,9 @@ class NeumorphicAppBar extends StatefulWidget implements PreferredSizeWidget {
   @override
   NeumorphicAppBarState createState() => NeumorphicAppBarState();
 
-  bool _getEffectiveCenterTitle(ThemeData theme, NeumorphicThemeData nTheme) {
-    if (centerTitle != null || nTheme.appBarTheme.centerTitle != null)
-      return centerTitle ?? nTheme.appBarTheme.centerTitle!;
+  bool _getEffectiveCenterTitle(ThemeData theme, NeumorphicThemeData? nTheme) {
+    if (centerTitle != null || nTheme?.appBarTheme.centerTitle != null)
+      return centerTitle ?? nTheme?.appBarTheme.centerTitle ?? false;
     switch (theme.platform) {
       case TargetPlatform.android:
       case TargetPlatform.fuchsia:
@@ -235,7 +235,7 @@ class NeumorphicAppBarState extends State<NeumorphicAppBar> {
                 middle: title,
                 trailing: actions,
                 centerMiddle:
-                    widget._getEffectiveCenterTitle(theme, nTheme!.current!),
+                    widget._getEffectiveCenterTitle(theme, nTheme?.current),
                 middleSpacing: widget.titleSpacing,
               ),
             ),
